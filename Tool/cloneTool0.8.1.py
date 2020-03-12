@@ -202,9 +202,9 @@ if __name__ == "__main__":
             #     uploadImage(browser, config["image2Id"]+"", url)
             #     time.sleep(2)
             uploadImageResult = checkUploadImageProgress(browser, config["uploadImageTimeout"])
-            if(uploadImageResult == true):
-                saveButton = browser.find_element_by_xpath(config["saveButtonId"]+"")
-                saveClick(saveButton, 10, product) #save edit
+            
+            saveButton = browser.find_element_by_xpath(config["saveButtonId"]+"")
+            saveClick(saveButton, 10, product) #save edit
             browser.close()
             browser.switch_to.window(tabs[0]) # back to main tab
 
