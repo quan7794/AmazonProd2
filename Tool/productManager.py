@@ -16,14 +16,19 @@ def getProductSizeUrl(pathUrl):
 def getProductUrl(productSoftPath, product):
     return os.path.abspath(productSoftPath+product)
 def moveProductToDone(productDataUrl, DoneUrl):
-    os.rename(productDataUrl, DoneUrl)
+    try:
+        os.rename(productDataUrl, DoneUrl)
+        print("Move done", DoneUrl)
+    except Exception as e:
+        print("Error: ",e)
+    
 
 #litle demo:
-# products = importProduct("productData/")
+# products = getProduct("productData/")
 
 # for product in products:
 #         print("Product name : ",getProductName(product) )
 #         print("Product url : ",getProductUrl("productData/",product) )
-
+#         moveProductToDone(getProductUrl("productData/",product),getProductUrl("DONE/",product))
     
     

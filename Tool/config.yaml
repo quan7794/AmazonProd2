@@ -1,8 +1,15 @@
 
-summaryTimeout: 5
-email: halterbreaksuit169@abcxyza.com
-password: 12qwaszxCV@
-otp: ""
+summaryTimeout: 15
+email: nhoBR406pq@phanhmx.com
+password: Tommy123@
+otp: 565728
+
+uploadImageDelayTime: 1
+uploadImageTimeout: 50
+saveTimeout: 3
+waitOtpTimeout: 60
+
+
 
 uploadFileTitleName: Open
 uploadFileEditTextId: Edit1
@@ -16,7 +23,7 @@ webDataPath: chrome-data
 showInterface: true
 productDataPath: productData/
 productSizePath: productSize/
-productDonePath: DONE
+productDonePath: DONE/
 
 loginUrl: https://sellercentral.amazon.com/signin
 emailId: //input[@type='email']
@@ -41,7 +48,3 @@ image2UploadProgressId: (//span[@class='percentage'])[2]
 image3UploadProgressId: (//span[@class='percentage'])[3]
 saveButtonId: //span[@id='ilui-publish-button']//input[@class='a-button-input']
 
-uploadImageDelayTime: 1
-uploadImageTimeout: 50
-saveTimeout: 3
-waitOtpTimeout: 60
