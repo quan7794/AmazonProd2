@@ -120,22 +120,19 @@ def checkUploadImageProgress(driver,timein,timeout):
             progress1 = driver.find_element_by_xpath(config["image1UploadProgressId"]).get_attribute("innerHTML")
             # print("Progress",progress1, progress2, progress3,sep=", ")
             if showlog1 == False and progress1 == "100%":
-                printLog("Uploaded main image")
                 showlog1 = True
            
             progress2 = driver.find_element_by_xpath(config["image2UploadProgressId"]).get_attribute("innerHTML")
             if showlog2 == False and progress2 == "100%" :
-                printLog("Uploaded size1 image")
                 showlog2 =True
 
             progress3 = driver.find_element_by_xpath(config["image3UploadProgressId"]).get_attribute("innerHTML")
             if  showlog3 == False and progress3 == "100%":
-                printLog("Uploaded size2 image")
                 showlog3 =True
             time.sleep(0.5)
 
             if(showlog1 == True and showlog2 == True and showlog3 == True):
-                printLog("Upload images success on "+ str(time.time()-timein)+" seconds")
+                printLog("Upload all images success on "+ str(time.time()-timein)+" seconds")
                 return True
         else:
             printLog("Upload error: Timeout")
@@ -226,7 +223,7 @@ if __name__ == "__main__":
             uploadImageResult = checkUploadImageProgress(browser,timein, config["uploadImageTimeout"])
             if(uploadImageResult == True):
                 saveButton = browser.find_element_by_xpath(config["saveButtonId"]+"")
-                printLog("Before click save button, please wait: "+ config["summaryTimeout"]+"s")
+                printLog("Before save, please wait: "+ config["summaryTimeout"]+"s")
                 time.sleep(float(config["summaryTimeout"]))
                 result = saveClick(saveButton, product, 5) #save edit
                 productManager.moveProductToDone(productManager.getProductUrl(config["productDataPath"], product), productManager.getProductUrl(config["productDonePath"], product))
