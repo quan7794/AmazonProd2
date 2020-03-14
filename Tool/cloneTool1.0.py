@@ -228,7 +228,7 @@ if __name__ == "__main__":
                 saveButton = browser.find_element_by_xpath(config["saveButtonId"]+"")
                 printLog("Before click save button, please wait: "+ config["summaryTimeout"]+"s")
                 time.sleep(float(config["summaryTimeout"]))
-                result = saveClick(saveButton, product, 3) #save edit
+                result = saveClick(saveButton, product, 5) #save edit
                 productManager.moveProductToDone(productManager.getProductUrl(config["productDataPath"], product), productManager.getProductUrl(config["productDonePath"], product))
                 time.sleep(0.5)
                 print("_______________________________________________________________")
@@ -245,10 +245,10 @@ if __name__ == "__main__":
             printLog(e)
             print("_______________________________________________________________")
 
-            # browser.close()
-            # browser.switch_to.window(tabs[0]) # back to main tab
-    # browser.quit()
-    printLog("Quit tool!")
+            browser.close()
+            browser.switch_to.window(tabs[0]) # back to main tab
+    browser.quit()
+    printLog("All Doned! Quit tool!")
 
 
 

@@ -223,21 +223,6 @@ if __name__ == "__main__":
             
             uploadImage(browser, config["image3Id"]+"", sizeUrl[1],"Uploading size2 image")
 
-<<<<<<< HEAD
-            uploadImageResult = checkUploadImageProgress(browser,timein, config["uploadImageTimeout"])
-            if(uploadImageResult == True):
-                saveButton = browser.find_element_by_xpath(config["saveButtonId"]+"")
-                printLog("Before click save button, please wait: "+ config["summaryTimeout"]+"s")
-                time.sleep(float(config["summaryTimeout"]))
-                result = saveClick(saveButton, product, 3) #save edit
-                productManager.moveProductToDone(productManager.getProductUrl(config["productDataPath"], product), productManager.getProductUrl(config["productDonePath"], product))
-                time.sleep(0.5)
-                print("_______________________________________________________________")
-
-            else:
-                printLog("Clone error for: ", productManager.getProductName(product))
-                print("_______________________________________________________________")
-=======
             #     uploadImage(browser, config["image2Id"]+"", url)
             #     time.sleep(2)
             uploadImageResult = checkUploadImageProgress(browser, config["uploadImageTimeout"])
@@ -246,7 +231,6 @@ if __name__ == "__main__":
             saveClick(saveButton, 10, product) #save edit
             browser.close()
             browser.switch_to.window(tabs[0]) # back to main tab
->>>>>>> 0b68241261bb4f11850b00c9b919ab87993e4457
 
             browser.close()
             browser.switch_to.window(tabs[0]) # back to main tab
