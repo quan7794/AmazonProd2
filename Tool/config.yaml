@@ -1,8 +1,8 @@
 
 summaryTimeout: 15
-email: nhoBR406pq@phanhmx.com
+email: ANHHUYBR238pq@phanhmx.com
 password: Tommy123@
-otp: 565728
+otp: 696220
 
 uploadImageDelayTime: 1
 uploadImageTimeout: 50
@@ -48,3 +48,13 @@ image2UploadProgressId: (//span[@class='percentage'])[2]
 image3UploadProgressId: (//span[@class='percentage'])[3]
 saveButtonId: //span[@id='ilui-publish-button']//input[@class='a-button-input']
 
+
+
+# for active tool
+replaceCharacter: s
+activeDataPath: active-data
+inactiveId: //li[@id='LISTINGS_VIEW_SECTION']//input[@value='Closed']
+nextButtonId: //a[contains(text(),'Next')]
+lastButtonId: //li[@class='a-disabled a-last']
+tableId: //div[contains(@class,'mt-table-container clearfix')]//tbody
+editId: //span[@class='a-button a-button-group-first']

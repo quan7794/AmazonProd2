@@ -184,7 +184,7 @@ if __name__ == "__main__":
     print("_______________________________________________________________")
     printLog("Start clone product:")
     
-    products = productManager.getProduct(config["productDataPath"])
+    products = productManager.getProducts(config["productDataPath"])
     for product in products:
         try:
             dropdowMenu = getElementByXpathUntilTimeout(browser,config["editProductDropdownId"],3) # open edit dropdown

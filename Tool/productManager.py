@@ -1,5 +1,5 @@
 import os
-def getProduct(pathUrl):
+def getProducts(pathUrl):
     entries = os.listdir(pathUrl)
     # for entry in entries:
         # print("Detected product: ",entry )

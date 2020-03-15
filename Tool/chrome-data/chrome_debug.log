@@ -1,0 +1,10 @@
+[15920:8388:0316/004547.238:INFO:CONSOLE(65)] "[Report Only] Refused to load the script 'https://drtm5ark2s28o.cloudfront.net/boomerang-1.0.2.min.js' because it violates the following Content Security Policy directive: "script-src https://*.amazon.com https://*.media-amazon.com https://*.ssl-images-amazon.com 'unsafe-inline' 'unsafe-eval'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://sellercentral.amazon.com/inventory/ref=xx_invmgr_dnav_xx (65)
+[15920:8388:0316/004547.243:INFO:CONSOLE(0)] "[Report Only] Refused to load the script 'https://d1t40axu4ik42k.cloudfront.net/cathodeBoomerang.afe4c1409865b3fa3290.min.js' because it violates the following Content Security Policy directive: "script-src https://*.amazon.com https://*.media-amazon.com https://*.ssl-images-amazon.com 'unsafe-inline' 'unsafe-eval'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://sellercentral.amazon.com/inventory/ref=xx_invmgr_dnav_xx (0)
+[15920:8388:0316/004547.365:INFO:CONSOLE(1)] "[object Object] ye chalOOOO", source: chrome-extension://ljngjbnaijcbncmcnjfhigebomdlkcjo/extension/background.js (1)
+[15920:8388:0316/004547.934:INFO:CONSOLE(1)] "[object Object] ye chalOOOO", source: chrome-extension://ljngjbnaijcbncmcnjfhigebomdlkcjo/extension/background.js (1)
+[15920:8388:0316/004547.977:INFO:CONSOLE(1)] "[object Object] ye chalOOOO", source: chrome-extension://ljngjbnaijcbncmcnjfhigebomdlkcjo/extension/background.js (1)
+[15920:8388:0316/004548.247:INFO:CONSOLE(1)] "[object Object] ye chalOOOO", source: chrome-extension://ljngjbnaijcbncmcnjfhigebomdlkcjo/extension/background.js (1)
+[15920:8388:0316/004729.930:WARNING:pref_notifier_impl.cc(40)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[15920:8388:0316/004729.930:WARNING:pref_notifier_impl.cc(40)] Pref observer for browser.relaunch_notification_period found at shutdown.

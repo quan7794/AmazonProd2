@@ -1,0 +1,11 @@
+/**
+ * Created by sanjay kumar on 17/12/16.
+ */
+
+
+[xpath], [css]{
+    outline: 2px dashed #00bfff !important;
+}
+[xpath="1"],  [css="1"]{
+    outline: 2px dashed #07bb46 !important;
+}
