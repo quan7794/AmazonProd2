@@ -8,6 +8,8 @@ uploadImageDelayTime: 1
 uploadImageTimeout: 50
 saveTimeout: 3
 waitOtpTimeout: 60
+cloneProfilePath: chrome-data
+
 #________________________________________________
 # setting for active tool
 activeEmail: ANHHUYBR238pq@phanhmx.com
@@ -37,7 +39,6 @@ otpId: //input[@id='auth-mfa-otpcode']
 rememberBrowserId: auth-mfa-remember-device 
 signInOtpButttonId: auth-signin-button
 
-webDataPath: chrome-data
 showInterface: true
 productDataPath: productData/
 productSizePath: productSize/

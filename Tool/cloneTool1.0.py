@@ -145,7 +145,7 @@ if __name__ == "__main__":
     config = loadConfigFile(configFileUrl)
     sizeUrl = productManager.getProductSizeUrl(config["productSizePath"])
     opts = Options()
-    opts.add_argument("--user-data-dir="+config["webDataPath"]) # add user data to chrome-data folder
+    opts.add_argument("--user-data-dir="+config["cloneProfilePath"]) # add user data to chrome-data folder
     if (config["showInterface"] != "true"):
         opts.set_headless()
         opts.add_argument('headless')
@@ -153,7 +153,6 @@ if __name__ == "__main__":
         opts.add_argument('--disable-dev-shm-usage')
         opts.add_argument('--no-sandbox')
         opts.add_argument('--remote-debugging-port=9222')
-    # print(config["webDataPath"])
     browser = Chrome(options=opts)
     # browser.implicitly_wait(20)
     browser.delete_all_cookies()
