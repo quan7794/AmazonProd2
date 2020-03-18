@@ -8,7 +8,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver import Chrome
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
-
+from selenium.webdriver.common.action_chains import ActionChains
 configFileUrl = "config.yaml"
 config = ""
     
@@ -133,24 +133,84 @@ def cleanUntilTimeout(item, timeout):
         except:
             time.sleep(1)
     return False
+def sendKeyUntilTimeout(item,key,timeout):
+    mustend = time.time() + float(timeout)
+    while time.time() < mustend:
+        try:
+            item.send_keys(key)
+            return True
+        except:
+            time.sleep(1)
+    return False
 def printLog(log):
     print("___ "+log)
+def checkIfEditButtonIsInteract(drive,editId):
+    items = drive.find_elements_by_xpath(editId)
+    # print("product size: ", len(items))
+    if len(items) >0:
+        while True:
+            try:
+                items[0].click()
+                tabs = drive.window_handles
+                drive.switch_to.window(tabs[1]) #go to 2nd tab
+                drive.close()
+                drive.switch_to.window(tabs[0]) # back to main tab
 
+                return items
+            except Exception as e :
+                time.sleep(1)
+                items = drive.find_elements_by_xpath(editId)
+    else:
+        return False
+    return items
+def isLastPage(driver,nextPageId):
+    try:
+        driver.find_element_by_xpath(config["nextPageId"])
+        printLog("Open next page")
+        return False
+    except :
+        printLog("Last page")
+        return True
+def editProduct(driver):
+    title = getElementByXpathUntilTimeout(driver,config["titleId"],30)
+    if title != False:
+        sendKeyResult = sendKeyUntilTimeout(title,config["replaceCharacter"],10)
+        if sendKeyResult == False:
+            return False
+        # title.send_keys(config["replaceCharacter"])
+        length = len(title.get_attribute('value'))
+        if length >200:
+            subTitle = (title.get_attribute('value'))[0:199]
+            cleanUntilTimeout(title,10)
+            title.send_keys(subTitle)
+            printLog("Title length: "+str(length)+" | New title: "+title.get_attribute('value'))
+        else:
+            printLog("Title length: "+str(length)+" | New title: "+title.get_attribute('value'))
+        try:
+            driver.find_element_by_xpath(config["saveId"]).click()
+        except:
+            return False
+        time.sleep(float(config["waitTimeForEachProduct"]))
+        return True
+    return False
 if __name__ == "__main__":
+    count = 0
+    lastPage = False
     config = loadConfigFile(configFileUrl)
     sizeUrl = productManager.getProductSizeUrl(config["productSizePath"])
     opts = Options()
     opts.add_argument("--user-data-dir="+config["activeDataPath"]) # add user data to chrome-data folder
+    # opts.add_argument("user-data-dir=C:\\Users\\AtechM_03\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 2")
     if (config["showInterface"] != "true"):
         opts.set_headless()
         opts.add_argument('headless')
         opts.add_argument('--disable-infobars')
         opts.add_argument('--disable-dev-shm-usage')
         opts.add_argument('--no-sandbox')
-        opts.add_argument('--remote-debugging-port=9222')
+        # opts.add_argument('--remote-debugging-port=9222')
     # print(config["webDataPath"])
     browser = Chrome(options=opts)
-    browser.implicitly_wait(20)
+    # browser.implicitly_wait(20)
     browser.delete_all_cookies()
     # browser = Chrome()
     browser.get(config["inventoryUrl"])
@@ -187,84 +247,46 @@ if __name__ == "__main__":
 
     # rows = table.find_elements_by_tag_name("tr") # get all row of one page
     # for row in rows:
-    time.sleep(5)
 
-    products = browser.find_elements_by_xpath(config["editId"])
-    print("product size: ", len(products))
-
-    for product in products:
-        clickUntilTimeout(product, 10)
-        # time.sleep(2)
-        tabs = browser.window_handles
-        browser.switch_to.window(tabs[1]) #go to 2nd tab
-        print("close page")
-        browser.close()
-        browser.switch_to.window(tabs[0]) # back to main tab
-        
-
-
+    # time.sleep(5)
     
-    # products = getProducts(config["productDataPath"])
-    # for product in products:
-    #     try:
-    #         dropdowMenu = getElementByXpathUntilTimeout(browser,config["editProductDropdownId"],3) # open edit dropdown
-    #         dropdowMenu.click()
-    #         # browser.find_element_by_xpath(config["editProductDropdownId"]).click() # open edit dropdown old
-    #         # print(editMenu)
-    #         printLog("Cloning "+ productManager.getProductName(product))
-
-    #         copys =getElementByXpathUntilTimeout(browser,config["copyListItemId"],3)
-    #         if("Copy listing" in copys.text):
-    #             copys.click()
-    #         else:
-    #             copys =getElementByXpathUntilTimeout(browser,config["copyListItemBackupId"],3)
-    #             copys.click()
-                
-    #         tabs = browser.window_handles
-    #         browser.switch_to.window(tabs[1]) #go to 2nd tab
-    #         # time.sleep(3)
-    #         # productName = WebDriverWait(browser, 30).until(lambda x: x.find_element_by_xpath("productTitleId"))
-    #         # productName.send_keys("Billie Eilish, 90's, Vintage, Unisex, Black Tshirt" + str(time.time())) # change product name
-    #         title = getElementByXpathUntilTimeout(browser, config["productTitleId"], 10)
-    #         cleanUntilTimeout(browser, title, 20)
-    #         title.send_keys(productManager.getProductName(product)) # change product name
-    #         # getElementByXpathUntilTimeout(browser, config["productTitleId"], 10)
-    #         # productName.send_keys(productName.text + " ver1_1") # change product name
-    #         timein = time.time()
-    #         uploadImage(browser, config["image1Id"]+"",productManager.getProductUrl(config["productDataPath"],product),"Uploading main image")
-    #         time.sleep(2)
-    #         imagesTab = getElementByXpathUntilTimeout(browser, config["imageTabId"], 10)
-    #         imagesTab.click() #switch to image tab to upload more 2 image.
-    #         uploadImage(browser, config["image2Id"]+"", sizeUrl[0],"Uploading size1 image")
-    #         time.sleep(2)
+    while(lastPage == False):
+        products = checkIfEditButtonIsInteract(browser,config["editId"])
+        # print("interact ok!")
+        if products != False:
+            # products = browser.find_elements_by_xpath(config["editId"])
+            # print("product size: ", len(products))
+            for product in products:
+                clickUntilTimeout(product, 10)
+                # time.sleep(2)
+                tabs = browser.window_handles
+                browser.switch_to.window(tabs[1]) #go to 2nd tab
+                try:
+                    editResult = editProduct(browser)
+                    if editResult == False:
+                        printLog("Error product: "+str(count+1)+": "+"Can't not save! May be, you do not fill all require datas to save.")
+                        print("_____________________________________")
+                    else:
+                        printLog("Done product: "+str(count+1))
+                        print("_____________________________________")
+                        time.sleep(float(config["waitTimeForEachPage"]))
+                    count +=1
+                    browser.close()
+                    browser.switch_to.window(tabs[0]) # back to main tab
+                except Exception as e:
+                    printLog("Error product: "+str(count+1)+": "+str(e))
+                    print("_____________________________________")
+                    count +=1
+                    browser.close()
+                    browser.switch_to.window(tabs[0]) # back to main tab
             
-    #         uploadImage(browser, config["image3Id"]+"", sizeUrl[1],"Uploading size2 image")
-
-    #         uploadImageResult = checkUploadImageProgress(browser,timein, config["uploadImageTimeout"])
-    #         if(uploadImageResult == True):
-    #             saveButton = browser.find_element_by_xpath(config["saveButtonId"]+"")
-    #             printLog("Before save, please wait: "+ config["summaryTimeout"]+"s")
-    #             time.sleep(float(config["summaryTimeout"]))
-    #             result = saveClick(saveButton, product, 5) #save edit
-    #             productManager.moveProductToDone(productManager.getProductUrl(config["productDataPath"], product), productManager.getProductUrl(config["productDonePath"], product))
-    #             time.sleep(0.5)
-    #             print("_______________________________________________________________")
-
-    #         else:
-    #             printLog("Clone error for: ", productManager.getProductName(product))
-    #             print("_______________________________________________________________")
-
-    #         browser.close()
-    #         browser.switch_to.window(tabs[0]) # back to main tab
-
-    #     except Exception as e:
-    #         printLog("Clone error for: ", productManager.getProductName(product))
-    #         printLog(e)
-    #         print("_______________________________________________________________")
-
-    #         browser.close()
-    #         browser.switch_to.window(tabs[0]) # back to main tab
-    # browser.quit()
-    printLog("All Doned! Quit tool!")
-
-
+        lastPage = isLastPage(browser,config["nextPageId"])
+        if lastPage != True:
+            browser.execute_script("scroll(0, 250)")
+            nextPage = browser.find_element_by_xpath(config["nextPageId"])
+            nextPage.click()
+            # ActionChains(browser).move_to_element(nextPage).click().perform()
+    if(config["quitBrowserAfterDone"] != "false"):
+        browser.quit()
+    printLog("All Doned!")
+    

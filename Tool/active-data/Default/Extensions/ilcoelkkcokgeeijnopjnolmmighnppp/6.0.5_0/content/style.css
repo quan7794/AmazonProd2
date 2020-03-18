@@ -1,0 +1,18 @@
+img.chromexPathFinder {
+    opacity: 0.5 !important;
+}
+
+.chromexPathFinder {
+    outline: 2px dashed orangered !important;
+    border-radius: 0.5em;
+}
+
+.chromexPathFinder2 {
+    outline: 2px dashed #4CAF50 !important;
+    border-radius: 0.5em;
+}
+
+.chromexPathFinder1 {
+    outline: 2px dashed #CDDC39 !important;
+    border-radius: 0.5em;
+}

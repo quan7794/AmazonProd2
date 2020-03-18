@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Ruto</title>
+    <link rel="stylesheet" href="./tools/ballon.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./tools/popupStyle.css"
+    />
+    <script src="./content/jquery.min.js" type="text/javascript"></script>
+    <script defer src="./tools/popup.js"></script>
+  </head>
+
+  <body id="body">
+    <div class="review">
+      <p>😍Ruto wishes you a happy and prosperous new year😍</p>
+    </div>
+    <div id="version" class="flex-containers">
+      <div
+        class="onoffswitch"
+        data-balloon-length="large"
+        data-balloon="Use only when right click in not available in pages. Get XPath in a single click. Note: Default click action will be disabled in pages, turn off to use regular click action."
+        data-balloon-pos="right"
+      >
+        <input
+          type="checkbox"
+          name="onoffswitch"
+          class="onoffswitch-checkbox"
+          id="myonoffswitch"
+        />
+        <label class="onoffswitch-label" for="myonoffswitch">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+      <div
+        class="likediv"
+        id="setting"
+        data-balloon="Setting"
+        data-balloon-pos="left"
+      >
+        <img src="./logo/icon/controls.svg" alt="Setting" />
+      </div>
+      <div
+        class="likediv"
+        data-balloon-length="small"
+        data-balloon="leave a review"
+        data-balloon-pos="left"
+      >
+        <a
+          href="https://chrome.google.com/webstore/detail/ruto-xpath-finder/ilcoelkkcokgeeijnopjnolmmighnppp/reviews"
+          target="_blank"
+        >
+          <img src="./logo/icon/love.svg" alt="review" />
+        </a>
+      </div>
+    </div>
+    <hr />
+    <!-- <div id="all" class="search">
+        <input type="text" id="seachText" placeholder="Enter your locator">
+        <button id="searchAll">Search</button>
+    </div> -->
+    <div class="snippets">
+      <textarea
+        type="text"
+        name="snippetsArea"
+        id="snippet"
+        class="textarea is-focused"
+        style="display:none"
+      ></textarea>
+      <div
+        id="attributesValuesfromNode"
+        class="attribuesValuesFromNode"
+        hidden
+      ></div>
+      <button id="copySnippet" data-copytarget="#snippet" style="display:none">
+        Copy Snippet
+      </button>
+    </div>
+    <div class="showVaribale">
+      <h2></h2>
+    </div>
+    <div id="webTable" class="webtable" style="display:none"></div>
+    <div id="outerDiv"></div>
+    <button class="accordion" style="display: none">More XPath</button>
+    <div class="panel" id="outerDiv"></div>
+    <div class="advanced" id="collapsible" hidden>
+      <label for="">Advance - Customize XPath</label>
+    </div>
+    <div id="showAdv" class="collapsible" hidden>
+      <div id="anc">
+        <div id="firstAnchor" class="s"></div>
+        <div id="secondAnchor" class="s"></div>
+        <button id="validateAnc" value="Validate" class="validateButton" hidden>
+          Validate
+        </button>
+      </div>
+    </div>
+    <hr />
+    <div class="logos">
+      <div class="flex" data-balloon="Home" data-balloon-pos="right">
+        <a href="https://sites.google.com/testleaf.com/ruto/" target="_blank">
+          <img
+            src="logo/ruto.webp"
+            alt="Ruto"
+            style="width: 80px;"
+            class="rutohome"
+          />
+        </a>
+      </div>
+      <div class="record" id="startRecord">
+        <div>
+          <p>Record sequence of test script</p>
+        </div>
+        <div class="onoffswitch">
+          <input
+            type="checkbox"
+            name="onoffswitchRecord"
+            class="onoffswitch-checkbox"
+            id="recordIcon"
+          />
+          <label class="onoffswitch-label" for="recordIcon">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+      </div>
+      <div class="flex">
+        <a href="https://testleaf.com" target="_blank">
+          <img src="logo/tl.webp" alt="logo" style="width: 80px;" />
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

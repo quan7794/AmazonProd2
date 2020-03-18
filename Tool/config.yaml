@@ -2,7 +2,7 @@
 summaryTimeout: 15
 email: ANHHUYBR238pq@phanhmx.com
 password: Tommy123@
-otp: 696220
+otp: 359918
 
 uploadImageDelayTime: 1
 uploadImageTimeout: 50
@@ -51,10 +51,15 @@ saveButtonId: //span[@id='ilui-publish-button']//input[@class='a-button-input']
 
 
 # for active tool
-replaceCharacter: s
+replaceCharacter: s   # Tu khoa them vao Title
+waitTimeForEachProduct: 4 # Thoi gian tam dung sau khi sua moi san pham.
+waitTimeForEachPage: 0 # Thoi giam tam dung sau khi sua xong 1 trang.
 activeDataPath: active-data
 inactiveId: //li[@id='LISTINGS_VIEW_SECTION']//input[@value='Closed']
-nextButtonId: //a[contains(text(),'Next')]
-lastButtonId: //li[@class='a-disabled a-last']
+nextPageId: //a[@href='#next']
+lastPageId: //li[@class='a-disabled a-last']
 tableId: //div[contains(@class,'mt-table-container clearfix')]//tbody
 editId: //span[@class='a-button a-button-group-first']
+titleId: //input[@id='item_name']
+saveId: //span[@id='ilui-publish-button']//input[@class='a-button-input']
+quitBrowserAfterDone : false

@@ -1,0 +1,47 @@
+{
+   "author": "Koushik Chatterjee",
+   "background": {
+      "page": "background.html",
+      "persistent": true
+   },
+   "browser_action": {
+      "default_popup": "popup.html",
+      "default_title": "Ruto offered by TestLeaf"
+   },
+   "commands": {
+      "_execute_browser_action": {
+         "description": "Get different types of XPath in a click",
+         "suggested_key": {
+            "default": "Alt+R",
+            "linux": "Alt+R",
+            "mac": "Alt+R",
+            "windows": "Alt+R"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "content/style.css" ],
+      "js": [ "content/content.js", "content/getMethodOrVarText.js", "content/handleTable.js", "content/getCss.js", "content/search.js", "content/record.js" ],
+      "match_about_blank": true,
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": "script-src 'self'; object-src 'self'",
+   "description": "Ruto brings the best XPath to you. We are striving hard to improve better performance and more new features",
+   "homepage_url": "https://sites.google.com/testleaf.com/ruto/",
+   "icons": {
+      "128": "logo/128.png",
+      "16": "logo/16.png",
+      "48": "logo/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlRlNmjCNWWPvzRNIgQccWbLRLFFNhzsKMYpF4Upx2b0E/UnWnbck11S1WuzhcKxifAcugjCWNrFl2d3qmNOZAa1xjo0Mai58lz2b2D2/aDmybWw21CVGccAbu39CKd0CNd3J9vQH9vle8+KgNsjGc0xxhnhv07M6IyTE5cBY2xbdjcMDrcn3j6jmyB6sMwLIY/YfLtYUff95q6ug3cfGwoxQepBYsWj1PzRid0tcA1FRdcOOzdHThxu8VN3nzHvWDkE5p8d2REVUkri1vVtyEcKl+HDCKL8gPnzHfSh2wo7N5VluUHH5Np3dqFPJL2Jojrg4c9vgqn+H+bdBovv9qQIDAQAB",
+   "manifest_version": 2,
+   "name": "Ruto - XPath Finder",
+   "offline_enabled": true,
+   "options_page": "option.html",
+   "permissions": [ "clipboardWrite", "tabs", "activeTab", "contextMenus", "storage", "notifications", "unlimitedStorage", "downloads", "downloads.open" ],
+   "short_name": "Ruto",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "6.0.5"
+}
