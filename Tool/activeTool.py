@@ -71,9 +71,9 @@ def importOtp(driver,timeout):
     mustend = time.time() + float(timeout)
     while time.time() < mustend:
         config = loadConfigFile(configFileUrl)
-        if(len(config["otp"])) == 6:
+        if(len(config["activeOtp"])) == 6:
             otpInput = getElementByXpathUntilTimeout(driver,config["otpId"],3)
-            otpInput.send_keys(config["otp"])
+            otpInput.send_keys(config["activeOtp"])
             rememberBrowser = getItemByIdUntilTimeout(driver,config["rememberBrowserId"],3)
             rememberBrowser.click()
             login = getItemByIdUntilTimeout(driver,config["signInOtpButttonId"],3)
@@ -199,7 +199,7 @@ if __name__ == "__main__":
     config = loadConfigFile(configFileUrl)
     sizeUrl = productManager.getProductSizeUrl(config["productSizePath"])
     opts = Options()
-    opts.add_argument("--user-data-dir="+config["activeDataPath"]) # add user data to chrome-data folder
+    opts.add_argument("--user-data-dir="+config["activeProfilePath"]) # add user data to chrome-data folder
     # opts.add_argument("user-data-dir=C:\\Users\\AtechM_03\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 2")
     if (config["showInterface"] != "true"):
         opts.set_headless()
@@ -219,10 +219,10 @@ if __name__ == "__main__":
     if (getElementByXpathUntilTimeout(browser, config["loginDoneId"], 3) == False):
 
         try:
-            browser.find_element_by_xpath(config["emailId"]).send_keys(config["email"])
+            browser.find_element_by_xpath(config["emailId"]).send_keys(config["activeEmail"])
         except:
             print("skip email!")
-        browser.find_element_by_xpath(config["passwordId"]).send_keys(config["password"])
+        browser.find_element_by_xpath(config["passwordId"]).send_keys(config["activePassword"])
         browser.find_element_by_xpath(config["rememberLoginId"]).click()
         browser.find_element_by_xpath(config["loginButtonId"]).click()
         if (getElementByXpathUntilTimeout(browser, config["loginDoneId"], 3) == False): #v check one more time to avoid firstime login

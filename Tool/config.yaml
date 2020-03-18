@@ -1,4 +1,5 @@
 
+# setting for clone tool
 summaryTimeout: 15
 email: ANHHUYBR238pq@phanhmx.com
 password: Tommy123@
@@ -10,7 +11,7 @@ saveTimeout: 3
 waitOtpTimeout: 60
 
 
-
+# Advanced setting, do not change anything after here if you don't know what is this.
 uploadFileTitleName: Open
 uploadFileEditTextId: Edit1
 
@@ -51,10 +52,15 @@ saveButtonId: //span[@id='ilui-publish-button']//input[@class='a-button-input']
 
 
 # for active tool
+activeEmail: ANHHUYBR238pq@phanhmx.com
+activePassword: Tommy123@
+activeOtp: 359918
 replaceCharacter: s   # Tu khoa them vao Title
 waitTimeForEachProduct: 4 # Thoi gian tam dung sau khi sua moi san pham.
 waitTimeForEachPage: 0 # Thoi giam tam dung sau khi sua xong 1 trang.
-activeDataPath: active-data
+activeProfilePath: active-data
+
+
 inactiveId: //li[@id='LISTINGS_VIEW_SECTION']//input[@value='Closed']
 nextPageId: //a[@href='#next']
 lastPageId: //li[@class='a-disabled a-last']
