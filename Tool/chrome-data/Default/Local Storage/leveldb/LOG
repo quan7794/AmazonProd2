@@ -1,3 +1,6 @@
-2020/03/16-00:45:47.287 1054 Reusing MANIFEST C:\Users\Administrator\Documents\Project\AmazonProd2\Tool\chrome-data\Default\Local Storage\leveldb/MANIFEST-000001
-2020/03/16-00:45:47.288 1054 Recovering log #3
-2020/03/16-00:45:47.288 1054 Reusing old log C:\Users\Administrator\Documents\Project\AmazonProd2\Tool\chrome-data\Default\Local Storage\leveldb/000003.log 
+2020/10/21-22:19:34.494 3b4 Reusing MANIFEST C:\Users\Administrator\Documents\Project\AmazonProd2\Tool\chrome-data\Default\Local Storage\leveldb/MANIFEST-000001
+2020/10/21-22:19:34.494 3b4 Recovering log #3
+2020/10/21-22:19:34.495 3b4 Reusing old log C:\Users\Administrator\Documents\Project\AmazonProd2\Tool\chrome-data\Default\Local Storage\leveldb/000003.log 
+2020/10/21-22:20:36.710 1540 Level-0 table #5: started
+2020/10/21-22:20:36.713 1540 Level-0 table #5: 14644 bytes OK
+2020/10/21-22:20:36.715 1540 Delete type=0 #3

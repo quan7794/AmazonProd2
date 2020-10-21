@@ -1,3 +1,15 @@
-2020/03/16-00:44:48.462 3704 Reusing MANIFEST C:\Users\Administrator\Documents\Project\AmazonProd2\Tool\chrome-data\Default\IndexedDB\https_sellercentral.amazon.com_0.indexeddb.leveldb/MANIFEST-000001
-2020/03/16-00:44:48.463 3704 Recovering log #3
-2020/03/16-00:44:48.464 3704 Reusing old log C:\Users\Administrator\Documents\Project\AmazonProd2\Tool\chrome-data\Default\IndexedDB\https_sellercentral.amazon.com_0.indexeddb.leveldb/000003.log 
+2020/10/21-22:20:09.199 1884 Reusing MANIFEST C:\Users\Administrator\Documents\Project\AmazonProd2\Tool\chrome-data\Default\IndexedDB\https_sellercentral.amazon.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/10/21-22:20:09.200 1884 Recovering log #59
+2020/10/21-22:20:09.200 1884 Reusing old log C:\Users\Administrator\Documents\Project\AmazonProd2\Tool\chrome-data\Default\IndexedDB\https_sellercentral.amazon.com_0.indexeddb.leveldb/000059.log 
+2020/10/21-22:20:12.382 1884 Level-0 table #64: started
+2020/10/21-22:20:12.385 1884 Level-0 table #64: 533 bytes OK
+2020/10/21-22:20:12.386 1884 Delete type=0 #59
+2020/10/21-22:20:12.386 1884 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/10/21-22:20:12.386 1884 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x1f\x03\x00\x80\xd2^\xbfTwB\x00\x01\x14\x00J\x001\x00K\x00N\x00S\x00Z\x00X\x009\x00A\x00C\x00E\x00W\x00P\x00W\x002\x00C\x005\x005\x003\x00G' @ 1144 : 1
+2020/10/21-22:20:12.387 1884 Compacting 1@1 + 1@2 files
+2020/10/21-22:20:12.388 1884 Generated table #65@1: 57 keys, 1702 bytes
+2020/10/21-22:20:12.388 1884 Compacted 1@1 + 1@2 files => 1702 bytes
+2020/10/21-22:20:12.389 1884 compacted to: files[ 0 0 1 0 0 0 0 ]
+2020/10/21-22:20:12.390 1884 Delete type=2 #61
+2020/10/21-22:20:12.390 1884 Delete type=2 #64
+2020/10/21-22:20:12.391 1884 Manual compaction at level-1 from '\x00\x01\x01\x1f\x03\x00\x80\xd2^\xbfTwB\x00\x01\x14\x00J\x001\x00K\x00N\x00S\x00Z\x00X\x009\x00A\x00C\x00E\x00W\x00P\x00W\x002\x00C\x005\x005\x003\x00G' @ 1144 : 1 .. (end); will stop at (end)

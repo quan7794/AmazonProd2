@@ -1,36 +1,14 @@
 
-# setting for clone tool
-summaryTimeout: 15
-email: ANHHUYBR238pq@phanhmx.com
-password: Tommy123@
-otp: 359918
+summaryTimeout: 3
+email: paulwood1920@gmail.com
+password: P45s#43Em(s)39
+otp: "348850"
+
 uploadImageDelayTime: 1
 uploadImageTimeout: 50
 saveTimeout: 3
 waitOtpTimeout: 60
-cloneProfilePath: chrome-data
 
-#________________________________________________
-# setting for active tool
-activeEmail: ANHHUYBR238pq@phanhmx.com
-activePassword: Tommy123@
-activeOtp: 359918
-replaceCharacter: s   # Tu khoa them vao Title
-waitTimeForEachProduct: 4 # Thoi gian tam dung sau khi sua moi san pham.
-waitTimeForEachPage: 0 # Thoi giam tam dung sau khi sua xong 1 trang.
-activeProfilePath: active-data
-#________________________________________________
-# Advanced setting for active tool, do not change anything after here if you don't know what is this.
-inactiveId: //li[@id='LISTINGS_VIEW_SECTION']//input[@value='Closed']
-nextPageId: //a[@href='#next']
-lastPageId: //li[@class='a-disabled a-last']
-tableId: //div[contains(@class,'mt-table-container clearfix')]//tbody
-editId: //span[@class='a-button a-button-group-first']
-titleId: //input[@id='item_name']
-saveId: //span[@id='ilui-publish-button']//input[@class='a-button-input']
-quitBrowserAfterDone : false
-
-# Advanced setting for clone tool, do not change anything after here if you don't know what is this.
 uploadFileTitleName: Open
 uploadFileEditTextId: Edit1
 
@@ -39,6 +17,7 @@ otpId: //input[@id='auth-mfa-otpcode']
 rememberBrowserId: auth-mfa-remember-device 
 signInOtpButttonId: auth-signin-button
 
+webDataPath: chrome-data
 showInterface: true
 productDataPath: productData/
 productSizePath: productSize/
@@ -60,8 +39,8 @@ productTitleId: //input[@id='item_name']
 
 image1Id: //span[@class='a-size-base a-color-tertiary a-text-normal']
 imageTabId: "//div[@id='hub-spoke-image-menu-item']"
-image2Id: //div[@id='pt1_image_url-wrapper']//div[@class='ilui-image-select-container']
-image3Id: //div[@id='pt2_image_url-wrapper']//div[@class='ilui-image-select-container']
+image2Id: //div[@id='other_image_url1-wrapper']/div[1]/div[2]
+image3Id: //div[@id='other_image_url2-wrapper']/div[1]/div[2]
 image1UploadProgressId: (//span[@class='percentage'])[1]
 image2UploadProgressId: (//span[@class='percentage'])[2]
 image3UploadProgressId: (//span[@class='percentage'])[3]
